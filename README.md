@@ -1,3 +1,10 @@
+# dependency
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+            <version>8.0.32</version>
+        </dependency>
+
 # app
 
 public class HelloApplication extends Application {
@@ -8,7 +15,7 @@ public class HelloApplication extends Application {
 
             TextField idField = new TextField();
             idField.setPromptText("Product ID");
-
+            
             TextField nameField = new TextField();
             nameField.setPromptText("Product Name");
 
@@ -103,21 +110,7 @@ public class DBDriver {
             throw new RuntimeException(e);
         }
     }
-//    public HashMap<String, Integer> selectCount(){
-//        try{
-//            this.connect();
-//            HashMap<String, Integer> res = new HashMap<>();
-//            String sql = "SELECT NAME, COUNT(ID) AS TOTAL FROM PRODUCTS GROUP BY NAME";
-//            ResultSet rs = statement.executeQuery(sql);
-//            while (rs.next()){
-//                res.put(rs.getString("NAME"), rs.getInt("TOTAL"));
-//            }
-//            this.close();
-//            return res;
-//        } catch (Exception e) {
-//            throw new RuntimeException(e);
-//        }
-//    }
+
 public Map<String, Integer> selectCount() {
     try{
         String sql = "SELECT NAME, COUNT(ID) AS TOTAL FROM PRODUCTS GROUP BY NAME";
